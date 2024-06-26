@@ -26,11 +26,20 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
+      backgroundColor: Colors.orange,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (!showBiometric)
+              const Padding(
+                padding: EdgeInsets.only(top: 50.0),
+                child: Text(
+                  'Biometric authentication not available',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
             if (showBiometric)
               ElevatedButton(
                 child: const Text(
